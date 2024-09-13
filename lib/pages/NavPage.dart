@@ -20,7 +20,7 @@ class NavPage extends StatelessWidget {
       home: DefaultTabController(length: 3, 
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Danh sách sản phẩm'),
+          title: Text('Danh sách'),
           bottom: TabBar(
             tabs: [
               Tab(
@@ -28,10 +28,6 @@ class NavPage extends StatelessWidget {
                 ),
               Tab(
                 icon: Icon(Icons.phone)
-                ),
-              Tab(
-                icon: Icon(Icons.directions_bike),
-
                 ),
             ],
           ),
@@ -42,13 +38,10 @@ class NavPage extends StatelessWidget {
           return ListTile(
             title: Text(emails[index]. name),
             subtitle: Text(emails[index].email),
-            // trailing: Text(users[index].age.toString()),
           );
         },
       ),
       )),
-     
-      
     );
   }
 }
