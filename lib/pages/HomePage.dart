@@ -88,6 +88,9 @@
 // }
 
 import 'package:app_mobile/pages/CartPage.dart';
+import 'package:app_mobile/pages/NavPage.dart';
+import 'package:app_mobile/widgets/HeaderAppBar.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:app_mobile/service/UserService.dart';
 import 'package:app_mobile/models/User.dart';
@@ -102,6 +105,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Page'),
+        
+     
         
       ),
       drawer: Drawer(
@@ -154,6 +159,45 @@ class HomePage extends StatelessWidget {
             trailing: Text(users[index].age.toString()),
           );
         },
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        onTap: (index) {
+          // Handle button tap
+          switch (index) {
+            case 0:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
+              break;
+            case 1:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CartPage()),
+              );
+              break;
+            case 2:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NavPage()),
+              );
+              break;
+            case 3:
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => Account()),
+              // );
+              break;
+          }
+        },
+        height: 60,
+        color: const Color.fromARGB(255, 223, 223, 223),
+        items: [
+          Icon(Icons.home, size: 30, color: Colors.blue),
+          Icon(Icons.shopping_bag, size: 30, color: Colors.blue),
+          Icon(Icons.person, size: 30, color: Colors.blue),
+          Icon(Icons.list, size: 30, color: Colors.blue),
+        ],
       ),
     );
   }
